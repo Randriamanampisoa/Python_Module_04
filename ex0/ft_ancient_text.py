@@ -7,11 +7,12 @@
 #   By: fanilran <fanilran@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/05/28 13:55:28 by fanilran            #+#    #+#            #
-#   Updated: 2026/05/29 20:19:11 by fanilran           ###   ########.fr      #
+#   Updated: 2026/05/29 21:36:06 by fanilran           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 import sys
+import typing
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
@@ -19,7 +20,7 @@ if __name__ == "__main__":
     elif len(sys.argv) == 2:
         print("=== Cyber Archives Recovery ===")
         print(f"Accessing file {sys.argv[1]}")
-        file = None
+        file: typing.IO = None
         try:
             file = open(sys.argv[1], "r")
             print("---\n")
