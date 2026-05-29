@@ -7,7 +7,7 @@
 #   By: fanilran <fanilran@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/05/29 23:04:29 by fanilran            #+#    #+#            #
-#   Updated: 2026/05/29 23:05:39 by fanilran           ###   ########.fr      #
+#   Updated: 2026/05/29 23:33:16 by fanilran           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -41,12 +41,12 @@ if __name__ == "__main__":
             if new_file == "":
                 print("Not saving data.")
             else:
+                print(f"Saving data to '{new_file}'")
                 file_magic = None
                 try:
                     file_magic = open(new_file, "w")
                     file_magic.write("\n".join(new_content))
-                    print("Saving data to 'new_fragment.txt'")
-                    print("Data saved in file '{new_file}'.")
+                    print(f"Data saved in file '{new_file}'.")
                 finally:
                     if file_magic:
                         file_magic.close()
