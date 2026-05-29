@@ -7,7 +7,7 @@
 #   By: fanilran <fanilran@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/05/28 13:55:28 by fanilran            #+#    #+#            #
-#   Updated: 2026/05/28 14:49:08 by fanilran           ###   ########.fr      #
+#   Updated: 2026/05/29 20:02:30 by fanilran           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -29,4 +29,6 @@ if __name__ == "__main__":
             print(file.read())
             print("---")
         except Exception as e:
-            print(f"Error opening file '{sys.argv[1]}': {e}")
+            if file:
+                file.close()
+                print(f"Error opening file '{sys.argv[1]}': {e}")
