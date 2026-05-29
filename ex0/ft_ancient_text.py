@@ -7,13 +7,13 @@
 #   By: fanilran <fanilran@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/05/28 13:55:28 by fanilran            #+#    #+#            #
-#   Updated: 2026/05/29 20:13:38 by fanilran           ###   ########.fr      #
+#   Updated: 2026/05/29 20:19:11 by fanilran           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 import sys
 
-def show() -> None:
+if __name__ == "__main__":
     if len(sys.argv) == 1:
         print(f"Usage: {sys.argv[0]} <file>")
     elif len(sys.argv) == 2:
@@ -31,7 +31,3 @@ def show() -> None:
             if file:
                 file.close()
                 print(f"File '{sys.argv[1]}' closed.")
-
-
-if __name__ == "__main__":
-    show()
