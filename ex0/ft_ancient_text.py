@@ -7,15 +7,11 @@
 #   By: fanilran <fanilran@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/05/28 13:55:28 by fanilran            #+#    #+#            #
-#   Updated: 2026/05/29 20:02:30 by fanilran           ###   ########.fr      #
+#   Updated: 2026/05/29 20:10:33 by fanilran           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 import sys
-
-
-# def verifie()
-
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
@@ -23,12 +19,15 @@ if __name__ == "__main__":
     elif len(sys.argv) == 2:
         print("=== Cyber Archives Recovery ===")
         print(f"Accessing file {sys.argv[1]}")
+        file = None
         try:
             file = open(sys.argv[1], "r")
             print("---\n")
             print(file.read())
             print("---")
         except Exception as e:
+            print(f"Error opening file '{sys.argv[1]}': {e}")
+        finally:
             if file:
                 file.close()
-                print(f"Error opening file '{sys.argv[1]}': {e}")
+                print(f"File '{sys.argv[1]}' closed.")
