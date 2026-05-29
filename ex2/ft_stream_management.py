@@ -7,7 +7,57 @@
 #   By: fanilran <fanilran@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/05/28 13:56:17 by fanilran            #+#    #+#            #
-#   Updated: 2026/05/28 13:56:18 by fanilran           ###   ########.fr      #
+#   Updated: 2026/05/29 23:47:40 by fanilran           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
+import sys
+
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        print(f"Usage: {sys.argv[0]} <file>")
+    elif len(sys.argv) == 2:
+        print("=== Cyber Archives Recovery & Preservation ===")
+        print(f"Accessing file {sys.argv[1]}")
+        file = None
+        try:
+            file = open(sys.argv[1], "r")
+            print("---\n")
+            content = file.read()
+            print(content)
+            print("\n---")
+            print(f"File '{sys.argv[1]}' closed.")
+            lines = content.split("\n")
+            new_content = []
+            for line in lines:
+                line_change = line.strip() + "#"
+                new_content.append(line_change)
+            print("\nTransform data:")
+            print("---\n")
+            for ligne in new_content:
+                print(ligne)
+            print("\n---")
+            sys.stdout.write("Enter new file name (or empty): ")
+            sys.stdout.flush()
+            new_file = sys.stdin.readline().strip()
+            if new_file == "":
+                print("Not saving data.")
+            else:
+                print(f"Saving data to '{new_file}'")
+                file_magic = None
+                try:
+                    file_magic = open(new_file, "w")
+                    file_magic.write("\n".join(new_content))
+                    print(f"Data saved in file '{new_file}'.")
+                except Exception as e:
+                    sys.stderr.write(f"[STDERR] Error opening file '{new_file}"
+                                     f"': [Errno 13] Permission denied: {e}\n")
+                    sys.stdout.write("Data not saved.\n")
+                finally:
+                    if file_magic:
+                        file_magic.close()
+        except Exception as e:
+            print(f"Error opening file '{sys.argv[1]}': {e}")
+        finally:
+            if file:
+                file.close()
