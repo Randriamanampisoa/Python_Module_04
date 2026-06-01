@@ -7,7 +7,7 @@
 #   By: fanilran <fanilran@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/05/28 13:56:13 by fanilran            #+#    #+#            #
-#   Updated: 2026/06/01 14:47:28 by fanilran           ###   ########.fr      #
+#   Updated: 2026/06/01 14:54:21 by fanilran           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -35,7 +35,7 @@ def secure_archive(file_name: str, mode: str) -> tuple[bool, str]:
 if __name__ == "__main__":
     print("=== Cyber Archives Security ===\n")
     lst = [
-        ("/not/existing/file", "read"), ("master.passwd", "read"),
+        ("/not/existing/file", "read"), ("master", "read"),
         ("ancient_fragment.txt", "read"), ("test_write.txt", "write")
     ]
     for t_lst in lst:
